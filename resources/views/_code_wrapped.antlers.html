@@ -1,0 +1,8 @@
+<div>
+    <h2 class="text-lg font-bold">Wrapped Partial... does the passed-in "code" variable start with "&lt;div&gt;"?</h2>
+    {{ if {code | starts_with('<div>')} }}
+    <div>Yes, "code" starts with div</div>
+    {{ else }}
+    <div>No, it does not</div>
+    {{ /if }}
+</div>

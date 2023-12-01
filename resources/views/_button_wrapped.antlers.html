@@ -1,0 +1,6 @@
+<h2 class="text-lg font-bold">Wrapped Partial... is the "href" passed in param an external URL?</h2>
+{{ if {href | is_external_url} }}
+<div>Yes, it is external</div>
+{{ else }}
+<div>No, it is not</div>
+{{ /if }}

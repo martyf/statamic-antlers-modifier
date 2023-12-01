@@ -24,6 +24,18 @@
 
 
     {{#
+        When including these within a partial, and wrapping the modifier use with single { }, things are OK...
+        But interesting that outside the partial, the { } is not required.
+    #}}
+    <div>
+        {{ partial:code_wrapped :code="settings:code_field" }}
+    </div>
+
+    <div>
+        {{ partial:button_wrapped :href="settings:first_link" }}
+    </div>
+
+    {{#
         When including these within a partial, things start to fail.
 
         Each of the modifiers in their respective Antlers files results in a different error.
