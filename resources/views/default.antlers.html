@@ -1,13 +1,15 @@
-{{#
-
-THIS WORKS AS EXPECTED
-
-#}}
 <div class="space-y-10">
+    {{#
+
+    THIS WORKS AS EXPECTED
+
+    #}}
     <div>
         <h2 class="text-lg font-bold">Does the "code_field" start with "&lt;div&gt;"?</h2>
         {{ if settings:code_field | starts_with('<div>') }}
         <div>Yes, "code_field" starts with div</div>
+        {{ else }}
+        <div>No, it does not</div>
         {{ /if }}
     </div>
 
@@ -19,24 +21,25 @@ THIS WORKS AS EXPECTED
         <div>No, it is not</div>
         {{ /if }}
     </div>
+
+
+    {{#
+        When including these within a partial, things start to fail.
+
+        Each of the modifiers in their respective Antlers files results in a different error.
+        So it is not just one modifier, but any modifier.
+
+        Set the if statement to "true" to get the 500 error
+        Set to "false" to ignore this block.
+    #}}
+    {{ if true }}
+        <div>
+            {{ partial:code :code="settings:code_field" }}
+        </div>
+
+        <div>
+            {{ partial:button :href="settings:first_link" }}
+        </div>
+    {{ /if }}
+
 </div>
-
-{{#
-    When including these within a partial, things start to fail.
-
-    Each of the modifiers in their respective Antlers files results in a different error.
-    So it is not just one modifier, but any modifier.
-
-    Set the if statement to "true" to
-#}}
-{{ if false }}
-    <div>
-        <div>Code</div>
-        {{ partial:code :code="settings:code_field" }}
-    </div>
-
-    <div>
-        <div>First Link</div>
-        {{ partial:button :href="settings:first_link" }}
-    </div>
-{{ /if }}
