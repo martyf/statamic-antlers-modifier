@@ -1,0 +1,6 @@
+title: Settings
+data:
+  first_link: 'entry::944000ca-5b10-43a7-92c0-861dad48e778'
+  code_field:
+    code: '<div>Hello world</div>'
+    mode: htmlmixed

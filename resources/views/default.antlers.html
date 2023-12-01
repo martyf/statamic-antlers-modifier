@@ -1,0 +1,42 @@
+{{#
+
+THIS WORKS AS EXPECTED
+
+#}}
+<div class="space-y-10">
+    <div>
+        <h2 class="text-lg font-bold">Does the "code_field" start with "&lt;div&gt;"?</h2>
+        {{ if settings:code_field | starts_with('<div>') }}
+        <div>Yes, "code_field" starts with div</div>
+        {{ /if }}
+    </div>
+
+    <div>
+        <h2 class="text-lg font-bold">Is the "first_link" an external URL?</h2>
+        {{ if settings:first_link | is_external_url }}
+        <div>Yes, it is external</div>
+        {{ else }}
+        <div>No, it is not</div>
+        {{ /if }}
+    </div>
+</div>
+
+{{#
+    When including these within a partial, things start to fail.
+
+    Each of the modifiers in their respective Antlers files results in a different error.
+    So it is not just one modifier, but any modifier.
+
+    Set the if statement to "true" to
+#}}
+{{ if false }}
+    <div>
+        <div>Code</div>
+        {{ partial:code :code="settings:code_field" }}
+    </div>
+
+    <div>
+        <div>First Link</div>
+        {{ partial:button :href="settings:first_link" }}
+    </div>
+{{ /if }}
